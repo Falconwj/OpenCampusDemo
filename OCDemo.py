@@ -50,16 +50,17 @@ if __name__ == '__main__':
     
     while(True):
         # 操作部
-        if cv2.waitKey(1)   & 0xFF == ord('m'):     # 漫画風            
+        c = cv2.waitKey(1)
+        if c == 'm':     # 漫画風            
             mode = 1
-        elif cv2.waitKey(1) & 0xFF == ord('f'):     # 前景抽出
+        elif c == 'f':     # 前景抽出
             mode = 2
-        elif cv2.waitKey(1) & 0xFF == ord('o'):     # 原画像
+        elif c == 'o':     # 原画像
             mode = 0
-        elif cv2.waitKey(1) & 0xFF == ord('t'):     # 透明人間
+        elif c == 't':     # 透明人間
             mode = 3
             _,bg = cap.read()
-        elif cv2.waitKey(1) & 0xFF == ord('q'):     # 終了
+        elif c == 'q' | c == 27:     # 終了
             break
         
         # フレームを獲得
